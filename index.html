@@ -6,15 +6,68 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>the tiny zoo</title>
 
+        <link rel="stylesheet" href="https://use.typekit.net/aqm7ocl.css">
+
         <style>
 
+            h1 {
+
+                font-family: active, sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 50px;
+
+            }
+
+            h2 {
+
+                font-family: active, sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 35px;
+
+                }
+
+            body {
+                background-image: url("images/pattern.png");
+            }
+
+            #linkBox {
+                background-color: #E4D00A;
+                padding: 15px;
+                display: inline-block;
+                width: 40%;
+                margin: 10px;
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            a {
+                padding: 15px;
+            }
+
+            p {
+                font-size: 20px;
+            }
+
+            #pText{
+
+                background-color: #A7EA96;
+                padding: 10px;
+                margin: auto;
+                margin-bottom: 15px;
+
+            }
+
             #narrowBody {
-                width: 70%;
+                width: 700px;
                 align-content: center;
                 padding: 15%;
                 padding-top: 0;
                 padding-bottom: 0;
                 text-align: center;
+                background: #4F7942;
+                margin: auto;
             }
 
             /* Container for flexboxes */
@@ -27,10 +80,7 @@
 
             /* Style the content */
             #textBox {
-            -webkit-flex: 3;
-            -ms-flex: 3;
-            flex: 3;
-            background-color: #f1f1f1;
+            background-color: #E4D00A;
             padding: 10px;
             text-align: center;
             }
@@ -39,7 +89,7 @@
             -webkit-flex: 1;
             -ms-flex: 1;
             flex: 1;
-            background: #ccc;
+            background: #4F7942;
             padding: 20px;
             }
 
@@ -47,12 +97,29 @@
             -webkit-flex: 4;
             -ms-flex: 4;
             flex: 4;
-            background: #ccc;
-            padding: 20px;
+            background: #4F7942;
+            padding: 25px;
             }
 
             #roadmap {
                 width: 100%;
+            }
+
+            .tip-button {
+            width: 304px;
+            height: 45px;
+            background-size: 100%;
+            background-image: url('images/4_pay_mm_off.png');
+            cursor: pointer;
+            margin: auto;
+            }
+
+            .tip-button:hover {
+            background-image: url('images/3_pay_mm_over.png');
+            }
+
+            .tip-button:active {
+            background-image: url('images/4_pay_mm_off.png');
             }
 
         </style>
@@ -62,15 +129,13 @@
         
         <div id="narrowBody">
 
-            <div id="header">
+            <div id="fullText">
 
                     <h1>the tiny zoo</h1>
 
-            </div>
+                <div id="pText">
 
-            <div id="fullText">
-
-                <p>the tiny zoo is a collection inspired by the pixel art style of tiny dinos</p>
+                    <p>the tiny zoo is a collection inspired by the pixel art style of tiny dinos</p>
                 <p> I wanted to challenge myself and see how many different animals I could represent in this
                     pixel style while keeping them recognizable
                 </p>
@@ -80,6 +145,20 @@
                 </p>
                 <p> 20% of all funds are donated to a variety of wildlife conservation efforts, 
                     including WWF, The Nature Conservancy, and zoo-led conservation programs. </p>
+
+                </div>
+
+                    <div id="linkBox">
+
+                        <a href="https://twitter.com/tinyzoonft">Twitter</a>
+
+                    </div>
+
+                    <div id="linkBox">
+
+                        <a href="https://opensea.io/collection/tiny-zoo-eth">OpenSea</a>
+
+                    </div>
 
             </div>
 
@@ -91,30 +170,59 @@
 
             </div>
 
-            <section>
+            <div id="fullText">
 
                 <h2> rarities </h2>
 
-            </section>
+                <div id="pText">
 
-            <section>
-
-                <div id="imageBox">
-
-                    <p>image</p>
+                    <p>As in the wild, there are fewer Critically Endangered animals in the collection as there are others,
+                        making the more endangered tiny animals rarer.
+                    </p>
 
                 </div>
+                
+                <img id="roadmap" src="images/populations.png" alt="examples of animal populations for the different statuses">
+
+            </div>
+
+            <div id="fullText">
 
                 <div id="textBox">
 
                     <h2> donate to the tiny treasury </h2>
                     <p> If you would prefer to donate directly to the tiny zoo, please direct your desired amount to:</p>
                     <p> thetinyzoo.eth </p>
+                    <div class="tip-button"></div>
 
-                    </div>
+                </div>
 
-            </section>
+            </div>
 
+            <script>
+
+                var tipButton = document.querySelector('.tip-button')
+                tipButton.addEventListener('click', function() {
+                if (typeof web3 === 'undefined') {
+                    return renderMessage('You need to install MetaMask to use this feature.  https://metamask.io')
+                }
+
+                var user_address = web3.eth.accounts[0]
+                web3.eth.sendTransaction({
+                    to: thetinyzoo.eth,
+                    from: user_address,
+                    value: web3.toWei('1', 'ether'),
+                }, function (err, transactionHash) {
+                    if (err) return renderMessage('Oh no!: ' + err.message)
+
+                    // If you get a transactionHash, you can assume it was sent,
+                    // or if you want to guarantee it was received, you can poll
+                    // for that transaction to be mined first.
+                    renderMessage('Thanks!')
+                })
+                })
+
+            </script>
 
         </div>
 
