@@ -28,6 +28,26 @@
                 font-size: 35px;
 
                 }
+                
+            a {
+                padding: 15px;
+                color: black;
+                font-family: articulat-cf,sans-serif;
+                font-weight: 300;
+                font-style: normal;
+            }
+
+            a:active, a:visited {
+                color:#4F7942;
+            }
+
+            p {
+                font-size: 18px;
+                font-family: articulat-cf,sans-serif;
+                font-weight: 300;
+                font-style: normal;
+            }
+
 
             body {
                 background-image: url("images/pattern.png");
@@ -43,14 +63,6 @@
                 margin: auto;
                 padding-left: 0;
                 padding-right: 0;
-            }
-
-            a {
-                padding: 15px;
-            }
-
-            p {
-                font-size: 20px;
             }
 
             #pText{
@@ -266,26 +278,26 @@
 
             <script>
 
-                var tipButton = document.querySelector('.tip-button')
-                tipButton.addEventListener('click', function() {
-                if (typeof window.ethereum === 'undefined') {
-                    return alert('You need to install MetaMask to use this feature.  https://metamask.io')
-                }
+                // var tipButton = document.querySelector('.tip-button')
+                // tipButton.addEventListener('click', function() {
+                // if (typeof window.ethereum === 'undefined') {
+                //     return alert('You need to install MetaMask to use this feature.  https://metamask.io')
+                // }
 
-                var user_address = web3.eth.accounts[0]
-                web3.eth.sendTransaction({
-                    to: 'thetinyzoo.eth',
-                    from: user_address,
-                    value: web3.toWei('1', 'ether'),
-                }, function (err, transactionHash) {
-                    if (err) return renderMessage('Oh no!: ' + err.message)
+                // var user_address = web3.eth.accounts[0]
+                // web3.eth.sendTransaction({
+                //     to: 'thetinyzoo.eth',
+                //     from: user_address,
+                //     value: web3.toWei('1', 'ether'),
+                // }, function (err, transactionHash) {
+                //     if (err) return renderMessage('Oh no!: ' + err.message)
 
-                    // If you get a transactionHash, you can assume it was sent,
-                    // or if you want to guarantee it was received, you can poll
-                    // for that transaction to be mined first.
-                    renderMessage('Thanks!')
-                })
-                })
+                //     // If you get a transactionHash, you can assume it was sent,
+                //     // or if you want to guarantee it was received, you can poll
+                //     // for that transaction to be mined first.
+                //     renderMessage('Thanks!')
+                // })
+                // })
 
             </script>
             
