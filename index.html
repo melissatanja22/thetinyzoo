@@ -7,6 +7,7 @@
         <title>the tiny zoo</title>
 
         <link rel="stylesheet" href="https://use.typekit.net/aqm7ocl.css">
+        <!-- <script src="https://github.com/ChainSafe/web3.js/blob/v1.2.11/dist/web3.min.js"></script> -->
 
         <style>
 
@@ -105,6 +106,11 @@
 
             #fullImage {
                 width: 100%;
+                margin: auto;
+            }
+
+            #smallImage {
+                width: 50%;
                 margin: auto;
             }
 
@@ -250,6 +256,8 @@
                     <h2> donate to the tiny treasury </h2>
                     <p> If you would prefer to donate directly to the tiny zoo, please direct your desired amount to:</p>
                     <p> thetinyzoo.eth </p>
+                    <img id="smallImage" src="images/thetinyzooeth_QR.png" alt="QR code to scan with Metamask">
+
                     <!-- <div class="tip-button"></div> -->
 
                 </div>
@@ -260,13 +268,13 @@
 
                 var tipButton = document.querySelector('.tip-button')
                 tipButton.addEventListener('click', function() {
-                if (typeof web3 === 'undefined') {
-                    return renderMessage('You need to install MetaMask to use this feature.  https://metamask.io')
+                if (typeof window.ethereum === 'undefined') {
+                    return alert('You need to install MetaMask to use this feature.  https://metamask.io')
                 }
 
                 var user_address = web3.eth.accounts[0]
                 web3.eth.sendTransaction({
-                    to: thetinyzoo.eth,
+                    to: 'thetinyzoo.eth',
                     from: user_address,
                     value: web3.toWei('1', 'ether'),
                 }, function (err, transactionHash) {
@@ -280,6 +288,7 @@
                 })
 
             </script>
+            
 
         </div>
 
