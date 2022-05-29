@@ -203,6 +203,101 @@
             background-image: url('images/4_pay_mm_off.png');
             }
 
+            /* * {box-sizing: border-box} */
+            /* body {font-family: Verdana, sans-serif; margin:0} */
+            .mySlides {display: none}
+            img {vertical-align: middle;}
+
+            /* Slideshow container */
+            .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+            }
+
+            /* Next & previous buttons */
+            .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            }
+
+            /* Position the "next button" to the right */
+            .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+            }
+
+            .prev {
+                left: 0;
+            }
+
+            /* On hover, add a black background color with a little bit see-through */
+            .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+            }
+
+            /* Caption text */
+            .text {
+            color: #000;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+            }
+
+            /* Number text (1/3 etc) */
+            .numbertext {
+            color: #000;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+            }
+
+            /* The dots/bullets/indicators */
+            .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+            }
+
+            .active, .dot:hover {
+            background-color: #717171;
+            }
+
+            /* Fading animation */
+            .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+            }
+
+            @keyframes fade {
+            from {opacity: .4} 
+            to {opacity: 1}
+            }
+
+            /* On smaller screens, decrease text size */
+            @media only screen and (max-width: 300px) {
+            .prev, .next,.text {font-size: 11px}
+            }
+
             @media screen and (max-width: 700px) {
             
                 body{
@@ -348,11 +443,66 @@
 
                 <h2> donations </h2>
 
-                <section>
+                <!-- <section> -->
 
-                <a href="images/wwfDonation.jpg" target="_blank">
-                    <img class="fullImage" id="ss2" src="images/wwfDonation.jpg" alt="WWF donation certificates">
-                </a>
+                    <div class="slideshow-container">
+
+                        <div class="mySlides fade">
+                          <div class="numbertext">1 / 5</div>
+                          <img src="images/wwfDonation1.jpg" style="width:100%">
+                          <div class="text">WWF Donation - Sea Turtles</div>
+                        </div>
+
+                        <div class="mySlides fade">
+                            <div class="numbertext">2 / 5</div>
+                            <img src="images/wwfDonation2.jpg" style="width:100%">
+                            <div class="text">WWF Donation - Koalas</div>
+                          </div>
+                        
+                        <div class="mySlides fade">
+                          <div class="numbertext">3 / 5</div>
+                          <img src="images/TorontoDonation2.png" style="width:100%">
+                          <div class="text">Toronto Zoo Wildlife Conservancy Donation</div>
+                        </div>
+                        
+                        <div class="mySlides fade">
+                          <div class="numbertext">4 / 5</div>
+                          <img src="images/TorontoDonation.jpg" style="width:100%">
+                          <div class="text">Toronto Zoo Wildlife Conservancy Retweet</div>
+                        </div>
+
+                        <div class="mySlides fade">
+                            <div class="numbertext">5 / 5</div>
+                            <img src="images/natureDonation.jpg" style="width:100%">
+                            <div class="text">Nature United Donation</div>
+                          </div>
+                        
+                        <a class="prev" onclick="plusSlides(-1)">❮</a>
+                        <a class="next" onclick="plusSlides(1)">❯</a>
+                        
+                        </div>
+                        <br>
+                        
+                        <div style="text-align:center">
+                          <span class="dot" onclick="currentSlide(1)"></span> 
+                          <span class="dot" onclick="currentSlide(2)"></span> 
+                          <span class="dot" onclick="currentSlide(3)"></span> 
+                          <span class="dot" onclick="currentSlide(4)"></span> 
+                          <span class="dot" onclick="currentSlide(5)"></span> 
+                        </div>
+                        
+
+                <!-- <div display="block">
+                    
+                    <a href="images/wwfDonation.jpg" target="_blank">
+                        <img class="fullImage" id="ss2" src="images/wwfDonation.jpg" alt="WWF donation certificates">
+                    </a>
+
+                    <a href="images/natureDonation.jpg" target="_blank">
+                        <img class="fullImage" id="ss2" src="images/natureDonation.jpg" alt="Nature United donation receipt">
+                    </a>
+
+                </div>
 
                 <div display="block">
 
@@ -364,15 +514,15 @@
                         <img class="fullImage" id="ss" src="images/TorontoDonation2.png" alt="Toronto Zoo donation certificate">
                     </a>
 
-                </div>
+                </div> -->
 
 
-                </section>
+                <!-- </section> -->
 
                 <div id="pText">
 
-                    <p>the tiny zoo has made three donations already! One donation went to the Toronto Zoo Conservation Program and the other two went to WWF (World Wildlife Foundation),
-                        towards the Koala and Sea Turtles. 
+                    <p>the tiny zoo has made four donations already! One donation went to the Toronto Zoo Conservation Program and two went to WWF (World Wildlife Foundation),
+                        towards the Koala and Sea Turtles. The latest donation went to Nature United, the Canadian affiliate to The Nature Conservancy.
                     </p>
 
                 </div>
@@ -415,6 +565,33 @@
             </div>
 
             <script>
+
+                let slideIndex = 1;
+                showSlides(slideIndex);
+
+                function plusSlides(n) {
+                showSlides(slideIndex += n);
+                }
+
+                function currentSlide(n) {
+                showSlides(slideIndex = n);
+                }
+
+                function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("dot");
+                if (n > slides.length) {slideIndex = 1}    
+                if (n < 1) {slideIndex = slides.length}
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";  
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex-1].style.display = "block";  
+                dots[slideIndex-1].className += " active";
+                }
 
                 // var tipButton = document.querySelector('.tip-button')
                 // tipButton.addEventListener('click', function() {
